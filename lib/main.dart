@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'dart:io';
 
 import 'package:english_words/english_words.dart';
@@ -7,18 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_demo/state_management/provider_architecture/app.dart';
 import 'package:window_size/window_size.dart';
-import 'package:flutter_demo/animation/fading.dart';
-import 'package:flutter_demo/build_layouts.dart';
-import 'package:flutter_demo/navigation/navigate_two_screens.dart';
-import 'package:flutter_demo/networking/network_request.dart';
-import 'package:flutter_demo/state_management/stage_management_app.dart';
-import 'package:flutter_demo/storage/database_main.dart';
-import 'package:flutter_demo/storage/shared_preferences.dart';
-import 'package:flutter_demo/todo_app/todo_app.dart';
-import 'package:flutter_demo/we_rate_dogs/app.dart';
-
-import 'buy_ticket_design/ticket_app.dart';
-import 'inherited_widget/user_app.dart';
 
 void main() {
   setupWindow();
@@ -49,7 +36,7 @@ void setupWindow() {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowTitle('Provider Demo');
     setWindowMinSize(const Size(windowWidth, windowHeight));
-    setWindowMaxSize(const Size(windowWidth, windowHeight));
+    //setWindowMaxSize(const Size(windowWidth, windowHeight));
     getCurrentScreen().then((screen) {
       setWindowFrame(Rect.fromCenter(
         center: screen!.frame.center,
