@@ -10,11 +10,17 @@ class User {
         name = '',
         username = '';
 
-  factory User.fromJson(Map<String, dynamic> json) => User(
-        id: json['id'],
-        name: json['name'],
-        username: json['username'],
-      );
+  static User? fromJson(Map<String, dynamic> json) {
+    final id = json['id'];
+    final name = json['name'];
+    final username = json['username'];
+    if (id == null || name == null || username == null) return null;
+    return User(
+      id: id,
+      name: name,
+      username: username,
+    );
+  }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};

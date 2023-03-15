@@ -41,8 +41,10 @@ class LoginTextField extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(10.0)),
       child: TextField(
-          decoration: const InputDecoration.collapsed(hintText: 'User Id'),
-          controller: controller),
+        decoration: const InputDecoration.collapsed(hintText: 'User Id'),
+        controller: controller,
+        keyboardType: TextInputType.number,
+      ),
     );
   }
 }
