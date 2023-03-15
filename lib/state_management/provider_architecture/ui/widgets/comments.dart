@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/state_management/provider_architecture/core/enums/view_state.dart';
 import 'package:flutter_demo/state_management/provider_architecture/core/models/comment.dart';
+import 'package:flutter_demo/state_management/provider_architecture/core/viewmodels/comments_model.dart';
+import 'package:flutter_demo/state_management/provider_architecture/provider/ui_notifier_consumer.dart';
 import 'package:flutter_demo/state_management/provider_architecture/ui/shared/app_colors.dart';
 import 'package:flutter_demo/state_management/provider_architecture/ui/shared/ui_helpers.dart';
 
@@ -10,7 +13,18 @@ class Comments extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('I am comments '));
+    return UiNotifierConsumer<CommentsModel>(
+      onModelReady: (model) => model.fetchComments(postId),
+      builder: (context, model, child) => model.state == ViewState.Busy
+          ? const Center(child: CircularProgressIndicator())
+          : Expanded(
+              child: ListView(
+                children: model.comments
+                    .map((comment) => CommentItem(comment))
+                    .toList(),
+              ),
+            ),
+    );
   }
 }
 
