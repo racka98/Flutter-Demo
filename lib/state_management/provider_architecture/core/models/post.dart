@@ -3,20 +3,23 @@ class Post {
   int id;
   String title;
   String body;
+  int likes;
 
   Post({
     required this.userId,
     required this.id,
     required this.title,
     required this.body,
+    required this.likes,
   });
 
   factory Post.fromJson(Map<String, dynamic> json) => Post(
-    userId: json['userId'],
-    id: json['id'],
-    title: json['title'],
-    body: json['body'],
-  );
+        userId: json['userId'],
+        id: json['id'],
+        title: json['title'],
+        body: json['body'],
+        likes: 0,
+      );
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
