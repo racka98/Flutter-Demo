@@ -4,7 +4,7 @@ import 'package:english_words/english_words.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_demo/state_management/streams/stream_app.dart';
+import 'package:flutter_demo/state_management/mvvm_architecture/app.dart';
 import 'package:window_size/window_size.dart';
 
 void main() {
@@ -26,7 +26,8 @@ void main() {
   // runApp(const AnimationApp()); // Animations Example
   // runApp(const StateManagementApp()); // State Management Examples
   // runApp(providerApp()); // Arch: State Management with Provider
-  runApp(const StreamApp()); // Using Streams
+  // runApp(const StreamApp()); // Using Streams
+  runApp(const MvvmApp()); // MVVM Architecture
 }
 
 const double windowWidth = 800;
